@@ -104,86 +104,53 @@ export default function BranchDetailsPage() {
         </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          <div className="rounded-3xl bg-stone-900 p-6 text-white">
-            <p className="text-sm text-stone-300">
-              Projected savings after {branch.years}{" "}
-              {branch.years === 1 ? "year" : "years"}
-            </p>
-
-            <p className="mt-3 text-4xl font-semibold">
-              {formatCurrency(branch.projectedSavings)}
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-stone-200 bg-white p-6">
-            <p className="text-sm text-stone-500">
-              Monthly housing cost
-            </p>
-
-            <p className="mt-3 text-3xl font-semibold">
-              {formatCurrency(branch.monthlyHousingCost)}
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-stone-200 bg-white p-6">
-            <p className="text-sm text-stone-500">
-              Money remaining each month
-            </p>
-
-            <p
-              className={`mt-3 text-3xl font-semibold ${
-                branch.monthlyRemaining < 0
-                  ? "text-red-700"
-                  : "text-stone-900"
+          {branch.metrics.map((metric, index) => (
+            <div
+              key={metric.label}
+              className={`rounded-3xl p-6 ${
+                index === 0
+                  ? "bg-stone-900 text-white"
+                  : "border border-stone-200 bg-white"
               }`}
             >
-              {formatCurrency(branch.monthlyRemaining)}
-            </p>
-          </div>
+              <p
+                className={`text-sm ${
+                  index === 0 ? "text-stone-300" : "text-stone-500"
+                }`}
+              >
+                {metric.label}
+              </p>
+
+              <p
+                className={`mt-3 text-3xl font-semibold ${
+                  metric.value < 0 && index !== 0 ? "text-red-700" : ""
+                }`}
+              >
+                {metric.format === "currency"
+                  ? formatCurrency(metric.value)
+                  : metric.format === "percentage"
+                    ? `${metric.value}%`
+                    : metric.value.toLocaleString()}
+              </p>
+            </div>
+          ))}
         </div>
 
         <section className="mt-8 rounded-3xl border border-stone-200 bg-white p-6 md:p-8">
           <h2 className="text-2xl font-semibold">Starting assumptions</h2>
 
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
-            <div>
-              <p className="text-sm text-stone-500">Annual income</p>
-              <p className="mt-1 text-xl font-medium">
-                {formatCurrency(branch.annualIncome)}
-              </p>
-            </div>
+            {branch.assumptions.map((assumption) => (
+              <div key={assumption.label}>
+                <p className="text-sm text-stone-500">
+                  {assumption.label}
+                </p>
 
-            <div>
-              <p className="text-sm text-stone-500">Current savings</p>
-              <p className="mt-1 text-xl font-medium">
-                {formatCurrency(branch.currentSavings)}
-              </p>
-            </div>
-
-            <div>
-              <p className="text-sm text-stone-500">
-                Monthly non-housing expenses
-              </p>
-              <p className="mt-1 text-xl font-medium">
-                {formatCurrency(branch.monthlyExpenses)}
-              </p>
-            </div>
-
-            <div>
-              <p className="text-sm text-stone-500">
-                Original housing cost
-              </p>
-              <p className="mt-1 text-xl font-medium">
-                {formatCurrency(branch.originalHousingCost)}
-              </p>
-            </div>
-
-            <div>
-              <p className="text-sm text-stone-500">Projection length</p>
-              <p className="mt-1 text-xl font-medium">
-                {branch.years} {branch.years === 1 ? "year" : "years"}
-              </p>
-            </div>
+                <p className="mt-1 text-xl font-medium">
+                  {assumption.value}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
