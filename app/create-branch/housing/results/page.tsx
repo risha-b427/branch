@@ -58,19 +58,57 @@ export default function HousingResultsPage() {
 
   function chooseFuture(result: (typeof results)[number]) {
     const savedBranch = {
-        id: crypto.randomUUID(),
-        title: result.name,
-        category: "Housing",
-        createdAt: new Date().toISOString(),
-        years,
-        annualIncome,
-        currentSavings,
-        monthlyExpenses,
-        originalHousingCost: totalHousingCost,
-        monthlyHousingCost: result.monthlyHousingCost,
-        monthlyRemaining: result.monthlyRemaining,
-        projectedSavings: result.projectedSavings,
-        description: result.description,
+      id: crypto.randomUUID(),
+      title: result.name,
+      category: "Housing" as const,
+      createdAt: new Date().toISOString(),
+      years,
+      description: result.description,
+      projectedSavings: result.projectedSavings,
+      monthlyRemaining: result.monthlyRemaining,
+
+      metrics: [
+        {
+          label: "Monthly housing cost",
+          value: result.monthlyHousingCost,
+          format: "currency" as const,
+        },
+        {
+          label: "Money remaining each month",
+          value: result.monthlyRemaining,
+          format: "currency" as const,
+        },
+        {
+          label: `Projected savings after ${years} ${
+            years === 1 ? "year" : "years"
+          }`,
+          value: result.projectedSavings,
+          format: "currency" as const,
+        },
+      ],
+
+      assumptions: [
+        {
+          label: "Annual income",
+          value: formatCurrency(annualIncome),
+        },
+        {
+          label: "Current savings",
+          value: formatCurrency(currentSavings),
+        },
+        {
+          label: "Monthly non-housing expenses",
+          value: formatCurrency(monthlyExpenses),
+        },
+        {
+          label: "Original housing cost",
+          value: formatCurrency(totalHousingCost),
+        },
+        {
+          label: "Projection length",
+          value: `${years} ${years === 1 ? "year" : "years"}`,
+        },
+      ],
     };
 
     addBranch(savedBranch);

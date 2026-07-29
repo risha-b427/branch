@@ -11,7 +11,7 @@ const decisionTypes = [
     title: "Career",
     description: "Compare jobs, graduate school, or different career paths.",
     emoji: "💼",
-    href: "#",
+    href: "/create-branch/career",
   },
   {
     title: "Major Purchase",
