@@ -120,7 +120,3 @@ I built Branch to make those decisions easier to understand. Instead of just com
 My goal is to create a tool that helps people feel more confident about important life decisions by making the future a little easier to picture.
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License.
