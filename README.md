@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Branch
 
-## Getting Started
+> Experience your future so you can make a decision in the present.
 
-First, run the development server:
+Branch is an interactive financial decision simulator that helps users compare different life choices before making them. Instead of relying on spreadsheets or rough estimates, users can explore multiple possible futures and understand the financial tradeoffs behind each path.
+
+Whether you're deciding where to live, choosing between career opportunities, or considering a major purchase, Branch helps answer one question:
+
+**"What could my future look like if I choose this?"**
+
+---
+
+## Features
+
+### Housing Simulator
+Compare different living situations, including:
+- Living alone
+- Living with roommates
+- Living at home
+
+Branch estimates:
+- Monthly spending money
+- Projected savings
+- Housing costs
+- Financial tradeoffs
+
+---
+
+### Career Simulator
+Compare different career paths such as:
+- Corporate job
+- Startup
+- Graduate school
+
+Branch analyzes:
+- Estimated take-home income
+- Salary growth over time
+- Tuition costs
+- Startup equity
+- Financial flexibility
+- Risk and stability
+- Personalized "Future You" insights
+
+---
+
+### Your Garden
+
+Every decision you choose becomes a new **Branch** inside your personal garden.
+
+Saved branches allow you to:
+- Compare different futures
+- Revisit previous decisions
+- Continue growing your collection of life choices
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- Local Storage
+
+---
+
+## Running Locally
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Roadmap
 
-To learn more about Next.js, take a look at the following resources:
+Current
+- Housing decision simulator
+- Career decision simulator
+- Saved decision garden
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Planned
+- Major purchase simulator
+- AI-generated financial insights
+- Timeline view of future outcomes
+- Authentication and cloud saves
+- Personalized recommendations
+- Additional decision categories
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Why I Built Branch
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I've always noticed that big life decisions; such as choosing a job, deciding whether to go to graduate school, or figuring out where to live; usually involve a lot of guessing. People use spreadsheets, online calculators, or advice from friends, but it's still hard to answer a simple question:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> **"Where will this decision actually leave me a few years from now?"**
+
+I built Branch to make those decisions easier to understand. Instead of just comparing confusing numbers, Branch compares different paths side by side, estimates how each choice could affect your finances over time, and explains the tradeoffs in a way that's easy to follow.
+
+My goal is to create a tool that helps people feel more confident about important life decisions by making the future a little easier to picture.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
